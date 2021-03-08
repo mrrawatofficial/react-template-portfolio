@@ -51,12 +51,14 @@ const index = () => {
   // ]);
 
   const [tag, setTag] = useState("all");
+  const [visibleImages, setVisibleImages] = useState(6);
   const [filteredImages, setFilteredImages] = useState([]);
 
   useEffect(() => {
     tag === "all"
       ? setFilteredImages(images)
       : setFilteredImages(images.filter((image) => image.tag === tag));
+    setVisibleImages(6);
   }, [tag]);
 
   return (
@@ -99,10 +101,11 @@ const index = () => {
             </div>
           </div>
         </div>
-        <SRLWrapper>
-          <div className="container">
+
+        <div className="container">
+          <SRLWrapper>
             <div className="row">
-              {filteredImages.map((image) => (
+              {filteredImages.slice(0, visibleImages).map((image) => (
                 <div key={image.id} className="col-lg-4 col-md-6 my-2">
                   <Panel shaded bordered bodyFill>
                     <a href={image.url}>
@@ -112,8 +115,18 @@ const index = () => {
                 </div>
               ))}
             </div>
+          </SRLWrapper>
+          <div className="row my-2">
+            <div className="col-md-12 d-grid">
+              <button
+                className="btn btn-info"
+                onClick={() => setVisibleImages(visibleImages + 6)}
+              >
+                View More
+              </button>
+            </div>
           </div>
-        </SRLWrapper>
+        </div>
       </div>
     </section>
   );
