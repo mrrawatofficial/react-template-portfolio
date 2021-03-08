@@ -1,8 +1,9 @@
 <!-- demo Demo -->
  <!-- "homepage": "https://mrrawatofficial.000webhostapp.com/demo/reactfolio/", -->
- 
- 
- emailjs
+
+<!-- contact email with email.js -->
+
+ <!-- emailjs
         .sendForm(
           "sericeid",
           "templateid",
@@ -16,9 +17,7 @@
           (error) => {
             console.log(error.text);
           }
-        );
- 
- 
+        ); -->
 
 <!-- npm run build -->
 
