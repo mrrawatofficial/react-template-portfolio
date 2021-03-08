@@ -224,6 +224,11 @@ section {
   padding: 3.125rem 0;
 }
 
+.btn-custom {
+  background-color: #ff4a35 !important;
+  color: #ffffff !important;
+}
+
 .f-icon {
   display: -webkit-box;
   display: -ms-flexbox;
