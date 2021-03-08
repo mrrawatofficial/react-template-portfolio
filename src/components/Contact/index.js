@@ -1,14 +1,61 @@
 import React, { useState } from "react";
 import Icons from "../Icons";
-import {Panel } from "rsuite";
+import emailjs from "emailjs-com";
+import { Panel } from "rsuite";
 
 const index = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [messagesent, setMessagesent] = useState(false);
+  const [error, seterror] = useState("");
+  const [issubmiting, setissubmiting] = useState(false);
+  const [successmsg, setSuccessmsg] = useState(false);
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (name.length < 3) {
+      seterror("Common..! You must have a name 😅 ");
+      setTimeout(() => {
+        seterror("");
+      }, 3000);
+    } else if (email.length < 5) {
+      seterror("Common..! Please enter complete email..!  😅 ");
+      setTimeout(() => {
+        seterror("");
+      }, 3000);
+    } else if (number.length < 10) {
+      seterror("Common..! Please enter 10 digit Mobile Number!  😅 ");
+      setTimeout(() => {
+        seterror("");
+      }, 3000);
+    } else if (message == "") {
+      seterror("Common..! Please, Write some Message..  😅 ");
+      setTimeout(() => {
+        seterror("");
+      }, 3000);
+    } else if (message.length < 10) {
+      seterror("Common..! Please, Write more words..  😅 ");
+      setTimeout(() => {
+        seterror("");
+      }, 3000);
+    } else {
+      setissubmiting(!issubmiting);
+      
+      setTimeout(() => {
+        setName("");
+        setEmail("");
+        setNumber("");
+        setMessage("");
+        setissubmiting(false);
+        setSuccessmsg(true);
+      }, 2000);
+      setTimeout(() => {
+        setSuccessmsg(false);
+      }, 6000);
+    }
+  };
 
   return (
     <section className="contact-sec" id="contact">
@@ -57,19 +104,17 @@ const index = () => {
                   onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
               </div>
-              {messagesent && (
-                <span className="text-success">
+              <h5 className="text-danger text-center my-3">{error}</h5>
+              {successmsg && (
+                <h5 className="text-success my-3">
                   Message Sent Succesfully!! Will reach back to you as soon as
                   possible..
-                </span>
+                </h5>
               )}
+
               <div className="row">
                 <div className="col-md-12 d-grid">
-                  <button
-                    className="btn btn-info"
-                    type="submit"
-                    disabled={messagesent}
-                  >
+                  <button className="btn btn-info" type="submit">
                     Send Message
                   </button>
                 </div>
