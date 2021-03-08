@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Icons from "../Icons";
-import emailjs from "emailjs-com";
 import { FormGroup, ButtonToolbar, Button, Panel } from "rsuite";
 
 const index = () => {
@@ -10,33 +9,6 @@ const index = () => {
   const [message, setMessage] = useState("");
   const [messagesent, setMessagesent] = useState(false);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_qqiu6tf",
-        "template_xpl291r",
-        e.target,
-        "user_j79jBKK7CQruxKjtK6qWj"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    setMessagesent(true);
-    setName("");
-    setEmail("");
-    setNumber("");
-    setMessage("");
-    // e.target.reset();
-    setTimeout(() => {
-      setMessagesent(false);
-    }, 3000);
-  };
 
   return (
     <section className="contact-sec" id="contact">
