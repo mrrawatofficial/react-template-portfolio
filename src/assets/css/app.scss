@@ -308,6 +308,9 @@ section {
     text-align: center;
     padding: 20px 0px;
     background-color: $primaryColor;
+    .rs-nav.rs-nav-horizontal {
+      white-space: normal !important;
+    }
   }
 
   .tag {
