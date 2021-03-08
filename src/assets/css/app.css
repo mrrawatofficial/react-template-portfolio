@@ -349,6 +349,10 @@ section {
   background-color: #ff4a35;
 }
 
+.portfolio-sec .tags .rs-nav.rs-nav-horizontal {
+  white-space: normal !important;
+}
+
 .portfolio-sec .tag {
   outline: none;
   border: none;
