@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Icons from "../Icons";
-import { FormGroup, ButtonToolbar, Button, Panel } from "rsuite";
+import {Panel } from "rsuite";
 
 const index = () => {
   const [name, setName] = useState("");
@@ -63,13 +63,17 @@ const index = () => {
                   possible..
                 </span>
               )}
-              <FormGroup>
-                <ButtonToolbar>
-                  <Button color="orange" type="submit">
+              <div className="row">
+                <div className="col-md-12 d-grid">
+                  <button
+                    className="btn btn-info"
+                    type="submit"
+                    disabled={messagesent}
+                  >
                     Send Message
-                  </Button>
-                </ButtonToolbar>
-              </FormGroup>
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
           <div className="col-md-4">
