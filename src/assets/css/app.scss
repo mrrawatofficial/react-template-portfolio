@@ -205,6 +205,11 @@ section {
   padding: 3.125rem 0;
 }
 
+.btn-custom {
+  background-color: $primaryColor !important;
+  color: $lightColor !important;
+}
+
 .f-icon {
   display: flex;
   flex-direction: row;
