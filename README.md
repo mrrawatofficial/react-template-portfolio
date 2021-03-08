@@ -1,5 +1,24 @@
 <!-- demo Demo -->
  <!-- "homepage": "https://mrrawatofficial.000webhostapp.com/demo/reactfolio/", -->
+ 
+ 
+ emailjs
+        .sendForm(
+          "sericeid",
+          "templateid",
+          e.target, 
+          "api/userid"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+ 
+ 
 
 <!-- npm run build -->
 
